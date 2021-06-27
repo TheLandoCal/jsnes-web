@@ -1,51 +1,26 @@
 # JSNES Web UI
 
-A React-based web UI for [JSNES](https://github.com/bfirsh/jsnes).
+An NES web emulator built with [JSNES](https://github.com/bfirsh/jsnes) and [JSNES Web UI](https://github.com/bfirsh/jsnes-web).
 
-## Running in development
+## Development Guide
 
-    $ yarn install
-    $ yarn start
+All steps to run and build JSNES using `npm` will be outlined below.
 
-## Building for production
+### Local Development
 
-    $ yarn build
+`npm` scripts can be used for standard development processes. Refer to [package.json](package.json) for full implementation details.
 
-The built app will be in `build/`.
+| Command               | Description                                                      |
+| --------------------- | ---------------------------------------------------------------- |
+| `npm install`         | Install/Update package dependencies                              |
+| `npm start`           | Run a local version of the React application                     |
+| `npm run format`      | Manually format all code using Prettier (required for build)     |
+| `npm run test`        | Interactively run tests (via jest)                               |
+| `npm run build`       | Optimize code for production environment                         |
+| `npm run serve`       | Serve the build from a static local server (assume build exists) |
+| `npm run build:serve` | Build + Serve                                                    |
 
-## Running tests
+## License
 
-    $ yarn test
-
-## Formatting code
-
-All code must conform to [Prettier](https://prettier.io/) formatting. The test suite won't pass unless it does.
-
-To automatically format all your code, run:
-
-    $ yarn run format
-
-## Embedding JSNES in your own app
-
-Unfortunately this isn't trivial at the moment. The best way is copy and paste code from this repository into a React app, then use the [`<Emulator>`](https://github.com/bfirsh/jsnes-web/blob/master/src/Emulator.js). [Here is a usage example.](https://github.com/bfirsh/jsnes-web/blob/d3c35eec11986412626cbd08668dbac700e08751/src/RunPage.js#L119-L125).
-
-A project for potential contributors (hello!): jsnes-web should be reusable and on NPM! It just needs compiling and bundling.
-
-## Adding roms
-
-Open `src/config.js` and add a new key to `config.ROMS`. For example:
-
-```javascript
-const config = {
-  ROMS: {
-    // ...
-    myrom: {
-      name: "My Rom",
-      description: <span>This is my own homebrew NES rom</span>,
-      url: "http://localhost:3000/roms/myrom/myrom.nes"
-    }
-  }
-}
-```
-
-Then, add the ROM file as `public/roms/myrom/myrom.nes`. The ROM should now be available to play at http://localhost:3000/run/myrom
+This project is licensed under the [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/).
+See [LICENSE](LICENSE) for more information.

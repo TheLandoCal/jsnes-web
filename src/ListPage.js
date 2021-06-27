@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import "./ListPage.css";
-import { ListGroup } from "reactstrap";
-import { Link } from "react-router-dom";
-import config from "./config";
+import React, { Component } from 'react';
+import './ListPage.css';
+import { ListGroup } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import config from './config';
 
-import RomLibrary from "./RomLibrary";
+import RomLibrary from './RomLibrary';
 
 class ListPage extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class ListPage extends Component {
               <header className="mb-4">
                 <h1 className="mb-3">JSNES</h1>
                 <p>
-                  A JavaScript NES emulator.{" "}
+                  A JavaScript NES emulator.{' '}
                   <a href="https://github.com/bfirsh/jsnes">
                     Source on GitHub.
                   </a>
@@ -39,10 +39,10 @@ class ListPage extends Component {
                   .map(key => (
                     <Link
                       key={key}
-                      to={"/run/" + encodeURIComponent(key)}
+                      to={'/run/' + encodeURIComponent(key)}
                       className="list-group-item"
                     >
-                      {config.ROMS[key]["name"]}
+                      {config.ROMS[key]['name']}
                       <span className="float-right">&rsaquo;</span>
                     </Link>
                   ))}
@@ -63,7 +63,7 @@ class ListPage extends Component {
                       .map(rom => (
                         <Link
                           key={rom.hash}
-                          to={"run/local-" + rom.hash}
+                          to={'run/local-' + rom.hash}
                           className="list-group-item"
                         >
                           {rom.name}
@@ -101,7 +101,7 @@ class ListPage extends Component {
 
   handleDragOver = e => {
     e.preventDefault();
-    e.dataTransfer.dropEffect = "copy";
+    e.dataTransfer.dropEffect = 'copy';
   };
 
   handleDrop = e => {
@@ -113,7 +113,7 @@ class ListPage extends Component {
 
     RomLibrary.save(file).then(rom => {
       this.updateLibrary();
-      this.props.history.push({ pathname: "run/local-" + rom.hash });
+      this.props.history.push({ pathname: 'run/local-' + rom.hash });
     });
   };
 }

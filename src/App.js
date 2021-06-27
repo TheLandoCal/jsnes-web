@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import GoogleAnalytics from "react-ga";
-import { BrowserRouter, Route } from "react-router-dom";
-import ListPage from "./ListPage";
-import RunPage from "./RunPage";
-import config from "./config";
-import { handleError } from "./utils";
-import "./App.css";
+import React, { Component } from 'react';
+import GoogleAnalytics from 'react-ga';
+import { BrowserRouter, Route } from 'react-router-dom';
+import ListPage from './ListPage';
+import RunPage from './RunPage';
+import config from './config';
+import { handleError } from './utils';
+import './App.css';
 
 class App extends Component {
   constructor(props) {

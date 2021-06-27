@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class ControlMapperRow extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      playerOneButton: "",
-      playerTwoButton: "",
+      playerOneButton: '',
+      playerTwoButton: '',
       waitingForKey: 0
     };
     this.handleClick = this.handleClick.bind(this);
@@ -62,15 +62,15 @@ class ControlMapperRow extends Component {
     var waitingForKeyPlayer = 0;
 
     var gamepadButtonName = gamepadButton => {
-      if (gamepadButton.type === "button") return "Btn-" + gamepadButton.code;
-      if (gamepadButton.type === "axis")
-        return "Axis-" + gamepadButton.code + " " + gamepadButton.value;
+      if (gamepadButton.type === 'button') return 'Btn-' + gamepadButton.code;
+      if (gamepadButton.type === 'axis')
+        return 'Axis-' + gamepadButton.code + ' ' + gamepadButton.value;
     };
 
     if (this.props.gamepadConfig && this.props.gamepadConfig.playerGamepadId) {
       const playerGamepadId = this.props.gamepadConfig.playerGamepadId;
       if (playerGamepadId[0]) {
-        playerButtons[0] = "";
+        playerButtons[0] = '';
         gamepadButton = searchButton(
           this.props.gamepadConfig.configs[playerGamepadId[0]],
           button
@@ -92,7 +92,7 @@ class ControlMapperRow extends Component {
       }
 
       if (playerGamepadId[1]) {
-        playerButtons[1] = "";
+        playerButtons[1] = '';
         gamepadButton = searchButton(
           this.props.gamepadConfig.configs[playerGamepadId[1]],
           button
@@ -153,7 +153,7 @@ class ControlMapperRow extends Component {
   }
 
   render() {
-    const waitingText = "Press key or button...";
+    const waitingText = 'Press key or button...';
     return (
       <tr>
         <td>{this.props.buttonName}</td>

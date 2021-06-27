@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { Button, Progress } from "reactstrap";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Button, Progress } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-import config from "./config";
-import ControlsModal from "./ControlsModal";
-import Emulator from "./Emulator";
-import RomLibrary from "./RomLibrary";
-import { loadBinary } from "./utils";
+import config from './config';
+import ControlsModal from './ControlsModal';
+import Emulator from './Emulator';
+import RomLibrary from './RomLibrary';
+import { loadBinary } from './utils';
 
-import "./RunPage.css";
+import './RunPage.css';
 
 /*
  * The UI for the emulator. Also responsible for loading ROM from URL or file.
@@ -37,7 +37,7 @@ class RunPage extends Component {
             this.navbar = el;
           }}
         >
-          <ul className="navbar-nav" style={{ width: "200px" }}>
+          <ul className="navbar-nav" style={{ width: '200px' }}>
             <li className="navitem">
               <Link to="/" className="nav-link">
                 &lsaquo; Back
@@ -49,7 +49,7 @@ class RunPage extends Component {
               <span className="navbar-text mr-3">{this.state.romName}</span>
             </li>
           </ul>
-          <ul className="navbar-nav" style={{ width: "200px" }}>
+          <ul className="navbar-nav" style={{ width: '200px' }}>
             <li className="navitem">
               <Button
                 outline
@@ -65,7 +65,7 @@ class RunPage extends Component {
                 onClick={this.handlePauseResume}
                 disabled={!this.state.running}
               >
-                {this.state.paused ? "Resume" : "Pause"}
+                {this.state.paused ? 'Resume' : 'Pause'}
               </Button>
             </li>
           </ul>
@@ -84,10 +84,10 @@ class RunPage extends Component {
               <Progress
                 value={this.state.loadedPercent}
                 style={{
-                  position: "absolute",
-                  width: "70%",
-                  left: "15%",
-                  top: "48%"
+                  position: 'absolute',
+                  width: '70%',
+                  left: '15%',
+                  top: '48%'
                 }}
               />
             ) : this.state.romData ? (
@@ -121,13 +121,13 @@ class RunPage extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener("resize", this.layout);
+    window.addEventListener('resize', this.layout);
     this.layout();
     this.load();
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.layout);
+    window.removeEventListener('resize', this.layout);
     if (this.currentRequest) {
       this.currentRequest.abort();
     }
@@ -137,7 +137,7 @@ class RunPage extends Component {
     if (this.props.match.params.slug) {
       const slug = this.props.match.params.slug;
       const isLocalROM = /^local-/.test(slug);
-      const romHash = slug.split("-")[1];
+      const romHash = slug.split('-')[1];
       const romInfo = isLocalROM
         ? RomLibrary.getRomInfoByHash(romHash)
         : config.ROMS[slug];
@@ -149,7 +149,7 @@ class RunPage extends Component {
 
       if (isLocalROM) {
         this.setState({ romName: romInfo.name });
-        const localROMData = localStorage.getItem("blob-" + romHash);
+        const localROMData = localStorage.getItem('blob-' + romHash);
         this.handleLoaded(localROMData);
       } else {
         this.setState({ romName: romInfo.description });
@@ -173,7 +173,7 @@ class RunPage extends Component {
         this.handleLoaded(reader.result);
       };
     } else {
-      this.setState({ error: "No ROM provided" });
+      this.setState({ error: 'No ROM provided' });
     }
   };
 

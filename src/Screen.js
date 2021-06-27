@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./Screen.css";
+import React, { Component } from 'react';
+import './Screen.css';
 
 const SCREEN_WIDTH = 256;
 const SCREEN_HEIGHT = 240;
@@ -29,7 +29,7 @@ class Screen extends Component {
   }
 
   initCanvas() {
-    this.context = this.canvas.getContext("2d");
+    this.context = this.canvas.getContext('2d');
     this.imageData = this.context.getImageData(
       0,
       0,
@@ -37,7 +37,7 @@ class Screen extends Component {
       SCREEN_HEIGHT
     );
 
-    this.context.fillStyle = "black";
+    this.context.fillStyle = 'black';
     // set alpha to opaque
     this.context.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
@@ -88,7 +88,7 @@ class Screen extends Component {
 
   screenshot() {
     var img = new Image();
-    img.src = this.canvas.toDataURL("image/png");
+    img.src = this.canvas.toDataURL('image/png');
     return img;
   }
 

@@ -64,7 +64,7 @@ export default class GamepadController {
           if (axis === -1 && previousAxis !== -1) {
             this.buttonCallback({
               gamepadId: gamepad.id,
-              type: "axis",
+              type: 'axis',
               code: code,
               value: axis
             });
@@ -73,7 +73,7 @@ export default class GamepadController {
           if (axis === 1 && previousAxis !== 1) {
             this.buttonCallback({
               gamepadId: gamepad.id,
-              type: "axis",
+              type: 'axis',
               code: code,
               value: axis
             });
@@ -86,7 +86,7 @@ export default class GamepadController {
           if (button.pressed && !previousButton.pressed) {
             this.buttonCallback({
               gamepadId: gamepad.id,
-              type: "button",
+              type: 'button',
               code: code
             });
           }
@@ -106,7 +106,7 @@ export default class GamepadController {
 
             for (let i = 0; i < configButtons.length; i++) {
               const configButton = configButtons[i];
-              if (configButton.type === "button") {
+              if (configButton.type === 'button') {
                 const code = configButton.code;
                 const button = buttons[code];
                 const previousButton = previousButtons[code];
@@ -116,7 +116,7 @@ export default class GamepadController {
                 } else if (!button.pressed && previousButton.pressed) {
                   this.onButtonUp(playerNumber, configButton.buttonId);
                 }
-              } else if (configButton.type === "axis") {
+              } else if (configButton.type === 'axis') {
                 const code = configButton.code;
                 const axis = gamepad.axes[code];
                 const previousAxis = previousGamepad.axes[code];
@@ -163,12 +163,12 @@ export default class GamepadController {
   loadGamepadConfig = () => {
     var gamepadConfig;
     try {
-      gamepadConfig = localStorage.getItem("gamepadConfig");
+      gamepadConfig = localStorage.getItem('gamepadConfig');
       if (gamepadConfig) {
         gamepadConfig = JSON.parse(gamepadConfig);
       }
     } catch (e) {
-      console.log("Failed to get gamepadConfig from localStorage.", e);
+      console.log('Failed to get gamepadConfig from localStorage.', e);
     }
 
     this.gamepadConfig = gamepadConfig;
@@ -176,10 +176,10 @@ export default class GamepadController {
 
   setGamepadConfig = gamepadConfig => {
     try {
-      localStorage.setItem("gamepadConfig", JSON.stringify(gamepadConfig));
+      localStorage.setItem('gamepadConfig', JSON.stringify(gamepadConfig));
       this.gamepadConfig = gamepadConfig;
     } catch (e) {
-      console.log("Failed to set gamepadConfig in localStorage");
+      console.log('Failed to set gamepadConfig in localStorage');
     }
   };
 

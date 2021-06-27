@@ -1,13 +1,13 @@
-import Raven from "raven-js";
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { NES } from "jsnes";
+import Raven from 'raven-js';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { NES } from 'jsnes';
 
-import FrameTimer from "./FrameTimer";
-import GamepadController from "./GamepadController";
-import KeyboardController from "./KeyboardController";
-import Screen from "./Screen";
-import Speakers from "./Speakers";
+import FrameTimer from './FrameTimer';
+import GamepadController from './GamepadController';
+import KeyboardController from './KeyboardController';
+import Screen from './Screen';
+import Speakers from './Speakers';
 
 /*
  * Runs the emulator.
@@ -54,7 +54,7 @@ class Emulator extends Component {
         // - System can't run emulator at full speed. In this case it'll stop
         //    firing requestAnimationFrame.
         console.log(
-          "Buffer underrun, running another frame to try and catch up"
+          'Buffer underrun, running another frame to try and catch up'
         );
 
         this.frameTimer.generateFrame();
@@ -62,7 +62,7 @@ class Emulator extends Component {
         // frame so we might need a second frame to be run. Give up after that
         // though -- the system is not catching up
         if (this.speakers.buffer.size() < desiredSize) {
-          console.log("Still buffer underrun, running a second frame");
+          console.log('Still buffer underrun, running a second frame');
           this.frameTimer.generateFrame();
         }
       }
@@ -76,7 +76,7 @@ class Emulator extends Component {
     });
 
     // For debugging. (["nes"] instead of .nes to avoid VS Code type errors.)
-    window["nes"] = this.nes;
+    window['nes'] = this.nes;
 
     this.frameTimer = new FrameTimer({
       onGenerateFrame: Raven.wrap(this.nes.frame),
@@ -104,10 +104,10 @@ class Emulator extends Component {
     // Load keys from localStorage (if they exist)
     this.keyboardController.loadKeys();
 
-    document.addEventListener("keydown", this.keyboardController.handleKeyDown);
-    document.addEventListener("keyup", this.keyboardController.handleKeyUp);
+    document.addEventListener('keydown', this.keyboardController.handleKeyDown);
+    document.addEventListener('keyup', this.keyboardController.handleKeyUp);
     document.addEventListener(
-      "keypress",
+      'keypress',
       this.keyboardController.handleKeyPress
     );
 
@@ -120,19 +120,19 @@ class Emulator extends Component {
 
     // Unbind keyboard
     document.removeEventListener(
-      "keydown",
+      'keydown',
       this.keyboardController.handleKeyDown
     );
-    document.removeEventListener("keyup", this.keyboardController.handleKeyUp);
+    document.removeEventListener('keyup', this.keyboardController.handleKeyUp);
     document.removeEventListener(
-      "keypress",
+      'keypress',
       this.keyboardController.handleKeyPress
     );
 
     // Stop gamepad
     this.gamepadPolling.stop();
 
-    window["nes"] = undefined;
+    window['nes'] = undefined;
   }
 
   componentDidUpdate(prevProps) {

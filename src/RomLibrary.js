@@ -9,8 +9,8 @@ const pFileReader = function(file) {
 const hashFile = function(byteString) {
   const asHex = buffer => {
     return Array.from(new Uint8Array(buffer))
-      .map(b => b.toString(16).padStart(2, "0"))
-      .join("");
+      .map(b => b.toString(16).padStart(2, '0'))
+      .join('');
   };
 
   const ab = new ArrayBuffer(byteString.length);
@@ -20,7 +20,7 @@ const hashFile = function(byteString) {
     ia[i] = byteString.charCodeAt(i);
   }
 
-  return crypto.subtle.digest("SHA-1", ab).then(asHex);
+  return crypto.subtle.digest('SHA-1', ab).then(asHex);
 };
 
 const RomLibrary = {
@@ -36,7 +36,7 @@ const RomLibrary = {
         });
       })
       .then(({ hash, byteString }) => {
-        const savedRomInfo = localStorage.getItem("savedRomInfo");
+        const savedRomInfo = localStorage.getItem('savedRomInfo');
         const existingLibrary = savedRomInfo ? JSON.parse(savedRomInfo) : [];
 
         const rom = {
@@ -47,23 +47,23 @@ const RomLibrary = {
 
         const newRomInfo = JSON.stringify(existingLibrary.concat([rom]));
 
-        localStorage.setItem("savedRomInfo", newRomInfo);
-        localStorage.setItem("blob-" + hash, byteString);
+        localStorage.setItem('savedRomInfo', newRomInfo);
+        localStorage.setItem('blob-' + hash, byteString);
 
         return rom;
       });
   },
   load: function() {
-    const localData = localStorage.getItem("savedRomInfo");
+    const localData = localStorage.getItem('savedRomInfo');
     if (!localData) return [];
-    const savedRomInfo = JSON.parse(localStorage.getItem("savedRomInfo"));
+    const savedRomInfo = JSON.parse(localStorage.getItem('savedRomInfo'));
     return savedRomInfo || [];
   },
   delete: function(hash) {
     const existingLibrary = this.load();
-    localStorage.removeItem("blob-" + hash);
+    localStorage.removeItem('blob-' + hash);
     localStorage.setItem(
-      "savedRomInfo",
+      'savedRomInfo',
       JSON.stringify(existingLibrary.filter(rom => rom.hash !== hash))
     );
   }

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Button,
   Modal,
@@ -6,12 +6,12 @@ import {
   ModalBody,
   ModalFooter,
   Table
-} from "reactstrap";
-import { Controller } from "jsnes";
-import ControlMapperRow from "./ControlMapperRow";
+} from 'reactstrap';
+import { Controller } from 'jsnes';
+import ControlMapperRow from './ControlMapperRow';
 
-const GAMEPAD_ICON = "../img/nes_controller.png";
-const KEYBOARD_ICON = "../img/keyboard.png";
+const GAMEPAD_ICON = '../img/nes_controller.png';
+const KEYBOARD_ICON = '../img/keyboard.png';
 
 class ControlsModal extends Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class ControlsModal extends Component {
       gamepadId => (gamepadId ? GAMEPAD_ICON : KEYBOARD_ICON)
     );
     this.state.controllerIconAlt = this.state.gamepadConfig.playerGamepadId.map(
-      gamepadId => (gamepadId ? "gamepad" : "keyboard")
+      gamepadId => (gamepadId ? 'gamepad' : 'keyboard')
     );
     this.state.currentPromptButton = -1;
   }
@@ -54,7 +54,7 @@ class ControlsModal extends Component {
     this.removeKeyListener();
     this.setState({ button, currentPromptButton });
     this.props.promptButton(this.handleGamepadButtonDown);
-    document.addEventListener("keydown", this.handleKeyDown);
+    document.addEventListener('keydown', this.handleKeyDown);
   }
 
   handleGamepadButtonDown(buttonInfo) {
@@ -139,7 +139,7 @@ class ControlsModal extends Component {
         gamepadId ? GAMEPAD_ICON : KEYBOARD_ICON
       ),
       controllerIconAlt: playerGamepadId.map(gamepadId =>
-        gamepadId ? "gamepad" : "keyboard"
+        gamepadId ? 'gamepad' : 'keyboard'
       ),
       modified: true
     });
@@ -147,7 +147,7 @@ class ControlsModal extends Component {
 
   removeKeyListener() {
     this.props.promptButton(null);
-    document.removeEventListener("keydown", this.handleKeyDown);
+    document.removeEventListener('keydown', this.handleKeyDown);
   }
 
   render() {

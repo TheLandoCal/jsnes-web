@@ -1,4 +1,4 @@
-import Raven from "raven-js";
+import Raven from 'raven-js';
 
 export const handleError = (error, errorInfo) => {
   console.error(error);
@@ -7,13 +7,13 @@ export const handleError = (error, errorInfo) => {
 
 export function loadBinary(path, callback, handleProgress) {
   var req = new XMLHttpRequest();
-  req.open("GET", path);
-  req.overrideMimeType("text/plain; charset=x-user-defined");
+  req.open('GET', path);
+  req.overrideMimeType('text/plain; charset=x-user-defined');
   req.onload = function() {
     if (this.status === 200) {
       if (req.responseText.match(/^<!doctype html>/i)) {
         // Got HTML back, so it is probably falling back to index.html due to 404
-        return callback(new Error("Page not found"));
+        return callback(new Error('Page not found'));
       }
 
       callback(null, this.responseText);

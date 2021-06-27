@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 const config = {
   ROMS: {
     owlia: {
-      name: "The Legends of Owlia",
+      name: 'The Legends of Owlia',
       description: (
         <span>
           <a
@@ -12,8 +12,8 @@ const config = {
             rel="noopener noreferrer"
           >
             Owlia by Gradual Games
-          </a>{" "}
-          /{" "}
+          </a>{' '}
+          /{' '}
           <a
             href="http://www.infiniteneslives.com/owlia.php"
             target="_blank"
@@ -23,10 +23,10 @@ const config = {
           </a>
         </span>
       ),
-      url: "https://cdn.jsdelivr.net/gh/bfirsh/jsnes-roms@master/owlia.nes"
+      url: 'https://cdn.jsdelivr.net/gh/bfirsh/jsnes-roms@master/owlia.nes'
     },
     nomolos: {
-      name: "Nomolos: Storming the Catsle",
+      name: 'Nomolos: Storming the Catsle',
       description: (
         <span>
           <a
@@ -35,8 +35,8 @@ const config = {
             rel="noopener noreferrer"
           >
             Monolos by Gradual Games
-          </a>{" "}
-          /{" "}
+          </a>{' '}
+          /{' '}
           <a
             href="http://www.infiniteneslives.com/nomolos.php"
             target="_blank"
@@ -46,10 +46,10 @@ const config = {
           </a>
         </span>
       ),
-      url: "https://cdn.jsdelivr.net/gh/bfirsh/jsnes-roms@master/nomolos.nes"
+      url: 'https://cdn.jsdelivr.net/gh/bfirsh/jsnes-roms@master/nomolos.nes'
     },
     croom: {
-      name: "Concentration Room",
+      name: 'Concentration Room',
       description: (
         <span>
           <a
@@ -58,15 +58,15 @@ const config = {
             rel="noopener noreferrer"
           >
             Concentration Room
-          </a>{" "}
+          </a>{' '}
           by Damian Yerrick
         </span>
       ),
       url:
-        "https://cdn.jsdelivr.net/gh/bfirsh/jsnes-roms@master/croom/croom.nes"
+        'https://cdn.jsdelivr.net/gh/bfirsh/jsnes-roms@master/croom/croom.nes'
     },
     lj65: {
-      name: "LJ65",
+      name: 'LJ65',
       description: (
         <span>
           <a
@@ -75,11 +75,11 @@ const config = {
             rel="noopener noreferrer"
           >
             Concentration Room
-          </a>{" "}
+          </a>{' '}
           by Damian Yerrick
         </span>
       ),
-      url: "https://cdn.jsdelivr.net/gh/bfirsh/jsnes-roms@master/lj65/lj65.nes"
+      url: 'https://cdn.jsdelivr.net/gh/bfirsh/jsnes-roms@master/lj65/lj65.nes'
     }
   },
   GOOGLE_ANALYTICS_CODE: process.env.REACT_APP_GOOGLE_ANALYTICS_CODE,

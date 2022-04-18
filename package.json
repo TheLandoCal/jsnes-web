@@ -20,7 +20,7 @@
     "canvas": "^2.8.0",
     "prettier": "^1.16.4",
     "prettier-check": "^2.0.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "build": "prettier-check src/**/*.js && react-scripts build",
